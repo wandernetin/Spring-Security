@@ -16,10 +16,16 @@ public class SecurityConfig {
 
   @Bean
   public InMemoryUserDetailsManager userDetailsManager() {
-    var user = User.withDefaultPasswordEncoder().username("user")
-            .password("password").roles("USER").build();
-    var admin = User.withDefaultPasswordEncoder().username("admin")
-            .password("password").roles("ADMIN").build();
+    var user = User.withDefaultPasswordEncoder()
+            .username("user")
+            .password("password")
+            .roles("USER")
+            .build();
+    var admin = User.withDefaultPasswordEncoder()
+            .username("admin")
+            .password("password")
+            .roles("ADMIN")
+            .build();
 
     return new InMemoryUserDetailsManager(user, admin);
   }
